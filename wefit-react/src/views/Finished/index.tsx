@@ -3,12 +3,11 @@ import AlertCard from "../../components/AlertCard";
 import Header from "../../components/Header";
 import * as S from "./styled";
 
-export default function Car() {
+export default function Finished() {
   return (
     <S.Container>
       <Header />
-
-      <AlertCard isCarEmpty />
+      <AlertCard />
     </S.Container>
   );
 }

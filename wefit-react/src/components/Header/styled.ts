@@ -27,6 +27,7 @@ export const BoxCarButton = styled.button`
   margin-left: 474px;
   background-color: #2f2e41;
   border: none;
+  text-decoration: none;
 `;
 
 export const BoxCarButtonText = styled.div`

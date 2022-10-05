@@ -7,6 +7,7 @@ export const Button = styled.button`
   border-radius: 4px;
   border: none;
   margin: 0;
+  text-decoration: none;
 `;
 
 export const Title = styled.text`

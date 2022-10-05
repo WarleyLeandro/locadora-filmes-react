@@ -1,16 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import reportWebVitals from "./reportWebVitals";
-import Car from "./views/Car";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Car />
+    <App />
   </React.StrictMode>
 );
-
-reportWebVitals();

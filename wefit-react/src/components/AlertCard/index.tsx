@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
 import Button from "../Button";
 
 import * as S from "./styled";
@@ -12,13 +13,17 @@ export default function AlertCard({ isCarEmpty }: AlertCardProps) {
     <S.Container>
       <S.Title>Parece que não há nada por aqui :(</S.Title>
       <S.Icon src={require("../../assets/empty-car.png")}></S.Icon>
-      <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      <Link to="/">
+        <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      </Link>
     </S.Container>
   ) : (
     <S.Container>
       <S.Title>Compra realizada com sucesso!</S.Title>
       <S.Icon src={require("../../assets/sucess.png")}></S.Icon>
-      <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      <Link to="/">
+        <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      </Link>
     </S.Container>
   );
 }

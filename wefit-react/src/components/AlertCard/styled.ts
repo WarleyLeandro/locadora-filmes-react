@@ -24,5 +24,12 @@ export const Title = styled.text`
 export const Icon = styled.img`
   height: 264px;
   margin-top: 49px;
+`;
+
+export const Underline = styled.hr`
+  background-color: #3f3d56;
+  border: none;
+  width: 447px;
+  height: 1.36px;
   margin-bottom: 35px;
 `;

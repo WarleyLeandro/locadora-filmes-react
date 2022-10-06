@@ -13,16 +13,20 @@ export default function AlertCard({ isCarEmpty }: AlertCardProps) {
     <S.Container>
       <S.Title>Parece que não há nada por aqui :(</S.Title>
       <S.Icon src={require("../../assets/empty-car.png")}></S.Icon>
-      <Link to="/">
-        <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      <S.Underline />
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Button text={"Voltar"} onClick={() => {}} />
       </Link>
     </S.Container>
   ) : (
     <S.Container>
       <S.Title>Compra realizada com sucesso!</S.Title>
-      <S.Icon src={require("../../assets/sucess.png")}></S.Icon>
-      <Link to="/">
-        <Button text={"Voltar"} onClick={() => console.log("aaa")} />
+      <S.Icon
+        src={require("../../assets/sucess.png")}
+        style={{ marginBottom: "42px" }}
+      ></S.Icon>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Button text={"Voltar"} onClick={() => {}} />
       </Link>
     </S.Container>
   );

@@ -6,8 +6,10 @@ export default function Header() {
   const qtdeItensOfCar = 0;
   return (
     <S.HeaderBox>
-      <S.Title>WeMovies</S.Title>
-      <Link to="/car">
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <S.Title>WeMovies</S.Title>
+      </Link>
+      <Link to="/car" style={{ textDecoration: "none" }}>
         <S.BoxCarButton>
           <S.BoxCarButtonText onClick={() => console.log("sssssssss")}>
             <S.MyCarText>Meu Carrinho</S.MyCarText>

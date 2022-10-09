@@ -1,30 +1,22 @@
-import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
+import { useCart } from "../../context/cart";
 import * as S from "./styled";
 
-interface CardMovie {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
+interface CartItemsAmount {
+  [key: number]: number;
 }
-
 export default function Home() {
-  const [movies, setMovies] = useState<CardMovie[]>([] as CardMovie[]);
+  const { addMovie, cart, movies } = useCart();
 
-  function loadMovies() {
-    fetch("http://localhost:3000/products")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setMovies(res);
-      });
+  const cartItemsAmount = cart.reduce((sumAmount, movie) => {
+    sumAmount[movie.id] = movie.amount;
+    return sumAmount;
+  }, {} as CartItemsAmount);
+
+  function handleAddProduct(id: number) {
+    addMovie(id);
   }
-
-  useEffect(() => {
-    loadMovies();
-  }, []);
 
   return (
     <S.Container>
@@ -38,6 +30,8 @@ export default function Home() {
                 price={movie.price}
                 id={movie.id}
                 image={movie.image}
+                cartItemsAmount={cartItemsAmount[movie.id] || 0}
+                onClick={() => handleAddProduct(movie.id)}
                 key={`${index}-${movie.id}`}
               />
             );

@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/cart";
 
 import * as S from "./styled";
 
 export default function Header() {
-  const qtdeItensOfCar = 0;
+  const { cart } = useCart();
   return (
     <S.HeaderBox>
       <Link to="/" style={{ textDecoration: "none" }}>
@@ -11,9 +12,11 @@ export default function Header() {
       </Link>
       <Link to="/car" style={{ textDecoration: "none" }}>
         <S.BoxCarButton>
-          <S.BoxCarButtonText onClick={() => console.log("sssssssss")}>
+          <S.BoxCarButtonText>
             <S.MyCarText>Meu Carrinho</S.MyCarText>
-            <S.ItemText>{qtdeItensOfCar} itens</S.ItemText>
+            <S.ItemText>
+              {cart.length} {cart.length === 1 ? "item" : "itens"}
+            </S.ItemText>
           </S.BoxCarButtonText>
           <S.Icon src={require("../../assets/bag.png")}></S.Icon>
         </S.BoxCarButton>

@@ -9,6 +9,7 @@ export const HeaderBox = styled.div`
   height: 72px;
   margin-top: 16px;
   margin-bottom: 41px;
+  background-color: #2f2e41;
 `;
 
 export const Title = styled.text`

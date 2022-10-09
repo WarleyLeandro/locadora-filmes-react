@@ -12,28 +12,11 @@ export const Button = styled.button`
 
 export const Title = styled.text`
   color: #ffffff;
+  background-color: #009edd;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 19.07px;
   text-align: center;
   font-style: normal;
-`;
-
-export const TitleAdd = styled.text`
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  color: #ffffff;
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 19.07px;
-  font-size: 10px;
-  font-style: normal;
-`;
-
-export const Icon = styled.img`
-  margin-left: 1px;
-  color: #ffffff;
 `;

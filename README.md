@@ -1,2 +1,2 @@
 # wefit
-App em react
+App em react e manipulação de DOM em JS

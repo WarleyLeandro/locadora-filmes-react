@@ -1,13 +1,19 @@
 function getNewList() {
   const list = document.getElementsByClassName("list-group");
 
-  arr = ["Quato item", "Quinto item"];
+  arr = ["Quarto item", "Quinto item"];
+
+  const firstItem = document.getElementsByClassName("list-group-item active");
+
+  firstItem[0].className = "list-group-item";
 
   for (let i = 0; i <= Array.length; i++) {
     let item = document.createElement("li");
     let textnode = document.createTextNode(arr[i]);
     item.appendChild(textnode);
-    item.className = "list-group-item";
+
+    item.className =
+      arr[i] == "Quarto item" ? "list-group-item active" : "list-group-item";
 
     list[0].appendChild(item);
   }
@@ -16,13 +22,26 @@ function getNewList() {
 }
 
 function sortCard() {
+  const listBox = document.getElementsByClassName("list-box")[0];
+
+  const cards = document.getElementsByClassName("card");
+  const [animais, tecnologia, pessoas, natureza] = cards;
+
+  //botão verde
+  animais.getElementsByClassName("btn btn-primary")[0].className =
+    "btn btn-success";
+
+  const newArr = [natureza, animais, pessoas, tecnologia];
+
   const list = document.getElementsByClassName("card-list");
+  list[0].remove();
 
-  const [a] = list;
-
-  //botao verde
-  let newAnimals = a.getElementsByClassName("btn btn-primary");
-  newAnimals[0].className = "btn btn-success";
+  for (let i = 0; i < newArr.length; i++) {
+    let item = document.createElement("div");
+    let node = item.appendChild(newArr[i]);
+    node.className = "col-lg-3";
+    listBox.appendChild(node);
+  }
 }
 
 function menuNavBar() {

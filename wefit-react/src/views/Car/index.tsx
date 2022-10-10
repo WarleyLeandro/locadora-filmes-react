@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
@@ -12,14 +10,7 @@ import * as S from "./styled";
 import { useCart } from "../../context/cart";
 import AlertCard from "../../components/AlertCard";
 import { formatPrice } from "../../util/format";
-
-interface Movie {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  amount: number;
-}
+import { Movie } from "../../@types/movie.inteface";
 
 export default function Car() {
   const { cart, clearCart, removeMovie, updateMovieAmount } = useCart();

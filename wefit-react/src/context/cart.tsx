@@ -1,27 +1,9 @@
+import { createContext, useContext, useEffect, useState } from "react";
 import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-
-interface Movie {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  amount: number;
-}
-
-interface CartProviderProps {
-  children: ReactNode;
-}
-
-interface updateMovieAmount {
-  movieId: number;
-  amount: number;
-}
+  Movie,
+  CartProviderProps,
+  updateMovieAmount,
+} from "../@types/movie.inteface";
 
 interface CartContextData {
   cart: Movie[];
@@ -50,7 +32,6 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   }
 
   useEffect(() => {
-    console.log("carrinho -->", cart);
     loadMovies();
   }, []);
 
@@ -59,19 +40,19 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   };
 
   const addMovie = async (movieId: number) => {
-    const productAlreadyInCart = cart.find((product) => product.id === movieId);
+    const movieAlreadyInCart = cart.find((movie) => movie.id === movieId);
 
-    if (!productAlreadyInCart) {
+    if (!movieAlreadyInCart) {
       const movie = movies.find((movie) => movie.id === movieId);
       // @ts-ignore:next-line
-      const newMovie: Product = { ...movie, amount: 1 };
+      const newMovie: Movie = { ...movie, amount: 1 };
 
       setCart([...cart, newMovie]);
 
       return;
     }
 
-    if (productAlreadyInCart) {
+    if (movieAlreadyInCart) {
       const updatedCart = cart.map((cartItem) =>
         cartItem.id === movieId
           ? {
@@ -87,7 +68,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   };
 
   const removeMovie = (movieId: number) => {
-    const movieExists = cart.some((cartProduct) => cartProduct.id === movieId);
+    const movieExists = cart.some((movie) => movie.id === movieId);
     if (!movieExists) {
       return;
     }
@@ -107,7 +88,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     );
     setCart(updatedCart);
   };
-  console.log("carrinho ==>", cart);
+
   return (
     <CartContext.Provider
       value={{

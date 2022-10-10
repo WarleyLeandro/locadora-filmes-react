@@ -85,8 +85,6 @@ export const TotalPrice = styled.text`
   color: #2f2e41;
 `;
 
-//card
-
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: row;

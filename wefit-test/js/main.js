@@ -27,7 +27,6 @@ function sortCard() {
   const cards = document.getElementsByClassName("card");
   const [animais, tecnologia, pessoas, natureza] = cards;
 
-  //botão verde
   animais.getElementsByClassName("btn btn-primary")[0].className =
     "btn btn-success";
 
